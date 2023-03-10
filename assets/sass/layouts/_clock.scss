@@ -1,0 +1,181 @@
+#themeToggleBtn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--main-clr);
+  font-size: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid var(--main-clr);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.5s ease;
+  &:hover {
+    background-color: var(--main-clr);
+    color: var(--bg-clr);
+  }
+}
+
+.analog-clock {
+  width: 250px;
+  height: 250px;
+  background-color: var(--clock-bg-clr);
+  position: relative;
+  border-radius: 50%;
+  box-shadow: var(--shadow),
+              inset -5px 5px 10px rgba(0, 0, 0, 0.1),
+              inset 5px -5px 10px rgba(0, 0, 0, 0.1);
+  @media (min-width: 992px) {
+    width: 450px;
+    height: 450px;
+  }
+  transition: background-color 0.5s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clock-border-clr);
+    scale: 1.1;
+    z-index: -1;
+    border-radius: inherit;
+    box-shadow: inset -5px 5px rgba(0, 0, 0, 0.1),
+                inset 5px -5px rgba(0, 0, 0, 0.1),
+                inset 5px 0px rgba(0, 0, 0, 0.1),
+                inset -5px 0px rgba(0, 0, 0, 0.1),
+                inset 0px 5px rgba(0, 0, 0, 0.1),
+                inset 0px -5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    background-color: var(--clock-bg-clr);
+    border: 2px solid var(--sec-hand-clr);
+    border-radius: inherit;
+    @media (min-width: 992px) {
+      width: 8px;
+      height: 8px;
+      border-width: 5px;
+    }
+  }
+  .numbers {
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div {
+      position: absolute;
+      inset: 12px;
+      transform: rotate(calc(var(--i) * (360deg / 12)));
+      text-align: center;
+      @media (min-width: 992px) {
+        inset: 15px;
+      }
+      span {
+        display: inline-block;
+        font-weight: 300;
+        color: var(--number-clr);
+        transform: rotate(calc(var(--i) * (-360deg / 12)));
+        @media (min-width: 992px) {
+          font-weight: 500;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  .second-dash {
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
+    span {
+      position: absolute;
+      inset: 5px;
+      text-align: center;
+      font-weight: 700;
+      transform: rotate(calc(var(--i) * (360deg / 60)));
+      color: var(--number-clr);
+      opacity: 0.5;
+      font-size: 0.2rem;
+      @media (min-width: 992px) {
+        font-size: 0.4rem;
+      }
+    }
+  }
+  .hour-hand {
+    height: 60px;
+    width: 5px;
+    background-color: var(--hand-clr);
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    transform-origin: bottom;
+    border-radius: 10px 10px 0 0;
+    @media (min-width: 992px) {
+      width: 7px;
+      height: 130px;
+    }
+  }
+  .min-hand {
+    height: 80px;
+    width: 3px;
+    background-color: var(--hand-clr);
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) rotate(0);
+    transform-origin: bottom;
+    border-radius: 10px 10px 0 0;
+    @media (min-width: 992px) {
+      width: 5px;
+      height: 150px;
+    }
+  }
+  .sec-hand {
+    height: 90px;
+    width: 1px;
+    background-color: var(--sec-hand-clr);
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) rotate(0);
+    transform-origin: bottom;
+    border-radius: 10px 10px 0 0;
+    @media (min-width: 992px) {
+      width: 3px;
+      height: 160px;
+    }
+  }
+}
+
+.lightIsActive {
+  .analog-clock {
+    &:before {
+      box-shadow: inset -5px 5px rgba(225, 225, 225, 0.05),
+                inset 5px -5px rgba(225, 225, 225, 0.05),
+                inset 5px 0px rgba(225, 225, 225, 0.05),
+                inset -5px 0px rgba(225, 225, 225, 0.05),
+                inset 0px 5px rgba(225, 225, 225, 0.05),
+                inset 0px -5px rgba(225, 225, 225, 0.05);
+    }
+  }
+}

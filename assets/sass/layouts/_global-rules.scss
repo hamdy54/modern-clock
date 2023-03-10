@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg-clr: #{$eire-black-clr};
+  --main-clr: #{$timberwolf-clr};
+  --clock-border-clr: #{$myrtle-green-clr};
+  --clock-bg-clr: #{$onyx-clr};
+  --hand-clr: #{$timberwolf-clr};
+  --sec-hand-clr: #{$old-gold-clr};
+  --number-clr: #{$timberwolf-clr};
+  --sahdow: 0 0 10px rgba(225, 225, 225, 0.5);
+}
+
+.lightIsActive {
+  --bg-clr: #{$timberwolf-clr};
+  --main-clr: #{$eire-black-clr};
+  --clock-border-clr: #{$eire-black-clr};
+  --clock-bg-clr: #{$myrtle-green-clr};
+  --sahdow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: var(--bg-clr);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s ease;
+}
+
+.container {
+  padding: 0 1rem;
+}
