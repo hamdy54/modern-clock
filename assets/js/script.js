@@ -30,12 +30,17 @@ const updateTime = () => {
   let date = new Date(),
     secToDeg = (date.getSeconds() / 60) * 360,
     minToDeg = (date.getMinutes() / 60) * 360,
-    hourToDeg = (date.getHours() / 12) * 360;
+    // hourToDeg = (date.getHours() / 12) * 360;
+    hourToDeg = ((date.getHours() + (date.getMinutes() / 60)) / 12) * 360;
 
   secHand.style.transform = `translateX(-50%) rotate(${secToDeg}deg)`;
   minHand.style.transform = `translateX(-50%) rotate(${minToDeg}deg)`;
   hourHand.style.transform = `translateX(-50%) rotate(${hourToDeg}deg)`;
 };
+
+window.addEventListener("load", () => {
+  updateTime();
+})
 
 setInterval(() => {
   updateTime();
