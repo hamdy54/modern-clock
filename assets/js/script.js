@@ -29,7 +29,8 @@ themeToggleBtn.addEventListener("click", (e) => {
 const updateTime = () => {
   let date = new Date(),
     secToDeg = (date.getSeconds() / 60) * 360,
-    minToDeg = (date.getMinutes() / 60) * 360,
+    // minToDeg = (date.getMinutes() / 60) * 360,
+    minToDeg = ((date.getMinutes() + (date.getSeconds() / 60)) / 60) * 360,
     // hourToDeg = (date.getHours() / 12) * 360;
     hourToDeg = ((date.getHours() + (date.getMinutes() / 60)) / 12) * 360;
 
